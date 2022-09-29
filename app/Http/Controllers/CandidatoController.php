@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vacante;
+use App\Models\Candidato;
 use Illuminate\Http\Request;
 
-class VacanteController extends Controller
+class CandidatoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Vacante $vacante)
     {
-        $this->authorize('viewAny', Vacante::class);
-        return view('vacantes.index');
+        return view('candidatos.index', [
+            'vacante' => $vacante,
+        ]);
     }
 
     /**
@@ -25,8 +27,7 @@ class VacanteController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Vacante::class);
-        return view('vacantes.create');
+        //
     }
 
     /**
@@ -43,40 +44,33 @@ class VacanteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Vacante  $vacante
+     * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function show(Vacante $vacante)
+    public function show(Candidato $candidato)
     {
-        return view('vacantes.show', [
-            'vacante' => $vacante,
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Vacante  $vacante
+     * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacante $vacante)
+    public function edit(Candidato $candidato)
     {
-
-        $this->authorize('update', $vacante);
-
-        return view('vacantes.edit', [
-            'vacante' => $vacante
-        ]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vacante  $vacante
+     * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacante $vacante)
+    public function update(Request $request, Candidato $candidato)
     {
         //
     }
@@ -84,10 +78,10 @@ class VacanteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Vacante  $vacante
+     * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacante $vacante)
+    public function destroy(Candidato $candidato)
     {
         //
     }
