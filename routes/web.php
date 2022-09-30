@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\CandidatoController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\NotificacionController;
-use App\Http\Controllers\VacanteController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VacanteController;
+use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\NotificacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Artisan::call('storage:link');
 
 Route::get('/', HomeController::class)->name('home');
 
